@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Contract Analyser</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <header>
+    <h1>🤖 AI Contract Analyser</h1>
+    <p class="subtitle">Smart tool to compare contracts and extract key insights</p>
+  </header>
+
+  <main class="container" id="mainMenu">
+    <div class="options">
+      <div class="option-box" onclick="showSection('compareSection')">
+        <h2>🔍 Compare Contracts</h2>
+        <p>Upload two contracts and detect changes</p>
+      </div>
+      <div class="option-box" onclick="showSection('scanSection')">
+        <h2>📑 Scan Contract</h2>
+        <p>Extract key clauses, profits, and terms</p>
+      </div>
+        <div class="option-box" onclick="showSection('legalCheckSection')">
+  <h2>⚖️ Legal Check</h2>
+  <p>Verify if a document looks like a legal contract</p>
+</div>
+    </div>
+  
+
+  </main>
+  
+
+  
+  <section id="compareSection" class="hidden">
+  <button class="back-btn" onclick="goBack()">⬅ Back</button>
+  <h2>🔍 Contract Comparison</h2>
+
+  <input type="text" id="searchBox" placeholder="🔎 Search keyword (e.g. profit, margin)" onkeyup="searchKeyword()">
+
+  <div class="file-inputs">
+    <input type="file" id="file1" accept=".txt,.docx,.pdf">
+    <input type="file" id="file2" accept=".txt,.docx,.pdf">
+  </div>
+
+  <div class="action-buttons">
+    <button class="btn primary" onclick="compareDocs()">Compare</button>
+    <button class="btn secondary" onclick="exportReport()">📥 Export Report</button>
+  </div>
+
+  
+  <div id="summary"></div>
+  <div id="results" class="results-box"></div>
+</section>
+
+  
+  <section id="scanSection" class="hidden">
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+    <center><h2>📑 Contract Scan</h2></center>
+    <input type="file" id="singleFile" accept=".txt,.docx,.pdf">
+    <button class="btn secondary" onclick="extractKeyPoints()">Extract Key Points</button>
+    <button class="btn primary" onclick="exportReport()">📥 Export Report</button>
+
+    <div id="keyClauses" class="doc"></div>
+    <div id="keypoints" class="doc"></div>
+  </section>
+  <section id="legalCheckSection" class="hidden">
+  <button class="back-btn" onclick="goBack()">⬅ Back</button>
+  <center><h2>⚖️ Legal Document Check</h2></center>
+
+  <div class="file-inputs">
+    <input type="file" id="legalFile" accept=".txt,.docx,.pdf">
+  </div>
+
+  <div class="action-buttons">
+    <button class="btn primary" onclick="checkLegal()">Check Document</button>
+    <button class="btn secondary" onclick="exportReport()">📥 Export Report</button>
+  </div>
+
+  
+  <div id="legalResults" class="results-box"></div>
+</section>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>
